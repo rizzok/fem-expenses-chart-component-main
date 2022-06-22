@@ -1,38 +1,38 @@
 import weekExpenses from './data/data.json'
-import logo from './images/logo.svg'
+import './basestyle.css'
+import AppContainer from './layout/AppContainer'
+import AppHeader from './layout/AppHeader'
+import AppBody from './layout/AppBody'
+import Balance from './components/Balance'
+import Logo from './components/Logo'
+import WeekExpenses from './layout/WeekExpenses'
+import DayExpense from './components/DayExpense'
+import MonthlySummary from './layout/MonthlySummary'
+import MonthTotal from './components/MonthTotal'
+import MonthEvolution from './components/MonthEvolution'
+import Separator from './components/Separator'
 
 function App() {
-  console.log(weekExpenses)
   return (
-    <div className="App">
-      <div>
-        <div>
-          <p>My balance</p>
-          <p>$921.48</p>
-        </div>
-        <img src={logo} alt="logo" />
-      </div>
-      <div>
-        <p>Spending - Last 7 days</p>
-        {weekExpenses.map((dayExpense) => (
-          <div key={dayExpense.day}>
-            <p>{dayExpense.amount}</p>
-            <p>{dayExpense.day}</p>
-          </div>
-        ))}
-      </div>
-      <hr />
-      <div>
-        <div>
-          <p>Total this month</p>
-          <p>$478.33</p>
-        </div>
-        <div>
-          <p>+2.4%</p>
-          <p>from last month</p>
-        </div>
-      </div>
-    </div>
+    <AppContainer>
+      <AppHeader>
+        <Balance />
+        <Logo />
+      </AppHeader>
+      <AppBody>
+        <WeekExpenses>
+          <h1>Spending - Last 7 days</h1>
+          {weekExpenses.map((dayExpense) => (
+            <DayExpense key={dayExpense.day} props={dayExpense} />
+          ))}
+        </WeekExpenses>
+        <Separator />
+        <MonthlySummary>
+          <MonthTotal />
+          <MonthEvolution />
+        </MonthlySummary>
+      </AppBody>
+    </AppContainer>
   )
 }
 
