@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import weekExpenses from './data/data.json'
 import './basestyle.css'
 import AppContainer from './layout/AppContainer'
@@ -13,6 +14,9 @@ import MonthEvolution from './components/MonthEvolution'
 import Separator from './components/Separator'
 
 function App() {
+  const [highestWeekExpense, setHighestWeekExpense] = useState(0)
+  const today = weekExpenses[new Date().getDay()].day
+
   return (
     <AppContainer>
       <AppHeader>
@@ -21,9 +25,18 @@ function App() {
       </AppHeader>
       <AppBody>
         <WeekExpenses>
-          {weekExpenses.map((dayExpense) => (
-            <DayExpense key={dayExpense.day} props={dayExpense} />
-          ))}
+          {weekExpenses.map((dayExpense) => {
+            dayExpense.amount > highestWeekExpense &&
+              setHighestWeekExpense(dayExpense.amount)
+            return (
+              <DayExpense
+                key={dayExpense.day}
+                props={dayExpense}
+                highestWeekExpense={highestWeekExpense}
+                today={today === dayExpense.day}
+              />
+            )
+          })}
         </WeekExpenses>
         <Separator />
         <MonthlySummary>

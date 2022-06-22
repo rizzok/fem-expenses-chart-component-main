@@ -8,7 +8,8 @@ const Title = styled.h1`
 const DaysContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: 4rem 0 2rem;
+  height: 175px;
 `
 
 const WeekExpenses = ({ children }) => {
