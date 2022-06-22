@@ -4,6 +4,8 @@
     --mobile-width: 375px;
     --desktop-width: 1440px;
 
+    --box-border-radiux: 20px;
+
     --soft-red: hsl(10, 79%, 65%);
     --cyan: hsl(186, 34%, 60%);
     --dark-brown: hsl(25, 47%, 15%);

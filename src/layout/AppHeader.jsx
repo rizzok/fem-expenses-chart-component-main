@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 const StyledAppHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  padding: 30px 32px;
   margin-bottom: 1.5rem;
-  border-radius: 20px;
+  border-radius: var(--box-border-radiux);
   background-color: var(--soft-red);
   color: var(--very-pale-orange);
 `

@@ -21,7 +21,6 @@ function App() {
       </AppHeader>
       <AppBody>
         <WeekExpenses>
-          <h1>Spending - Last 7 days</h1>
           {weekExpenses.map((dayExpense) => (
             <DayExpense key={dayExpense.day} props={dayExpense} />
           ))}
