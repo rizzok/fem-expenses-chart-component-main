@@ -20,6 +20,9 @@ const Bar = styled.div`
   background-color: ${(props) =>
     props.today ? 'var(--cyan)' : 'var(--soft-red)'};
   border-radius: 5px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: rise 0.5s ease-in-out forwards;
   transition: opacity 0.2s;
 
   &:hover {
@@ -47,11 +50,8 @@ const Day = styled.p`
   font-size: 15px;
 `
 
-const DayExpense = ({ props, highestWeekExpense, today }) => {
-  // todo: not optimal
-  const day = props.day
-  const amount = props.amount
-  const barHeight = Math.round((amount / highestWeekExpense) * 100)
+const DayExpense = ({ day, amount, highestDailyExpense, today }) => {
+  const barHeight = Math.round((amount / highestDailyExpense) * 100)
 
   return (
     <Container>

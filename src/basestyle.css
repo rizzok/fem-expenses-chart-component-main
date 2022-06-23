@@ -38,3 +38,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+@keyframes rise {
+    0% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+}
