@@ -13,6 +13,11 @@
     --cream: hsl(27, 66%, 92%);
     --very-pale-orange: hsl(33, 100%, 98%);
 }
+@media screen and (max-width: 480px) {
+    :root {
+        --box-border-radiux: 12px;
+    }
+}
 
 html,
 body,
@@ -21,6 +26,7 @@ body,
 }
 
 body {
+    min-width: 375px;
     font-family: 'DM Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;

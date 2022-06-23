@@ -4,6 +4,10 @@ const Container = styled.div``
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: 700;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `
 const DaysContainer = styled.div`
   display: flex;

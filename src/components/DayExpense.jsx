@@ -8,11 +8,17 @@ const Container = styled.div`
   align-items: center;
   font-size: 1rem;
 `
+const BarContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+`
 const Bar = styled.div`
   width: 100%;
-  height: ${(props) => props.relativePercentage}%;
+  height: ${(props) => props.barHeight}%;
   background-color: ${(props) =>
-    props.today ? 'var(--soft-red)' : 'var(--cyan)'};
+    props.today ? 'var(--cyan)' : 'var(--soft-red)'};
   border-radius: 5px;
   transition: opacity 0.2s;
 
@@ -23,8 +29,8 @@ const Bar = styled.div`
     &:before {
       content: '$${(props) => props.amount}';
       position: relative;
-      top: -42px;
-      left: -12px;
+      top: -38px;
+      left: -11px;
       padding: 8px;
       border-radius: 5px;
       background-color: black;
@@ -36,19 +42,22 @@ const Bar = styled.div`
   }
 `
 const Day = styled.p`
-  margin-top: 5px;
+  margin-top: 7px;
   color: var(--medium-brown);
+  font-size: 15px;
 `
 
 const DayExpense = ({ props, highestWeekExpense, today }) => {
   // todo: not optimal
   const day = props.day
   const amount = props.amount
-  const relativePercentage = Math.round((amount / highestWeekExpense) * 100)
+  const barHeight = Math.round((amount / highestWeekExpense) * 100)
 
   return (
     <Container>
-      <Bar amount={amount} relativePercentage={relativePercentage} today />
+      <BarContainer>
+        <Bar amount={amount} barHeight={barHeight} today={today} />
+      </BarContainer>
       <Day>{day}</Day>
     </Container>
   )

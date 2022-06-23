@@ -6,6 +6,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-bottom: 9px;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 7px;
+  }
 `
 const Value = styled.p`
   font-weight: 700;
